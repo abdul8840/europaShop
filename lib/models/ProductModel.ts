@@ -4,7 +4,7 @@ export type Product = {
     slug: string
     image: string
     banner?: string
-    price: Number
+    price: number
     brand: string
     category: string
     description: string
