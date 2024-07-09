@@ -1,7 +1,6 @@
 import { Product } from '@/lib/models/ProductModel';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 const ProductItem = ({ product }: { product: Product }) => {
   return (
