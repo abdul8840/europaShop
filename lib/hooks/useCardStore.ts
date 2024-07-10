@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { OrderItem } from '../models/OrderModel';
 import { round2 } from '../utils';
+import { persist } from 'zustand/middleware';
 
 
 type Cart = {
@@ -19,7 +20,11 @@ const initialState: Cart = {
   shippingPrice: 0,
 };
 
-export const cartStore = create<Cart>(() => initialState);
+export const cartStore = create<Cart>()(
+    persist(() => initialState, {
+        name: 'cartStore',
+    })
+)
 
 export default function useCartService() {
   const { items, itemsPrice, taxPrice, shippingPrice, totalPrice } =
